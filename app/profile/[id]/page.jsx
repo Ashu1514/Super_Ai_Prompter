@@ -3,10 +3,9 @@
 import { useState, useEffect } from "react";
 import Profile from "@components/Profile";
 
-const ProfilePage = ({params}) => {
+const ProfilePage = ({ params }) => {
   const [posts, setPosts] = useState([]);
   const [profile, setProfile] = useState();
-  
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -20,7 +19,7 @@ const ProfilePage = ({params}) => {
       setProfile(data);
     };
     if (params?.id) {
-      fetchProfile()
+      fetchProfile();
       fetchPosts();
     }
   }, []);
@@ -28,7 +27,13 @@ const ProfilePage = ({params}) => {
   return (
     <Profile
       name={profile?.username}
-      desc={"Welcome to " + profile?.username + "'s profile page"}
+      desc={
+        "Welcome to " +
+        profile?.username +
+        "'s personalized profile page. Explore " +
+        profile?.username +
+        " exceptional prompts and be inspired by the power of their imagination."
+      }
       data={posts}
     />
   );
