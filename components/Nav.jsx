@@ -4,8 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const Nav = () => {
+  const router = useRouter();
   const { data: session } = useSession();
   const [providers, setProviders] = useState(null);
   const [toggleDropdown, setToggleDropdown] = useState(false);
@@ -22,8 +24,8 @@ const Nav = () => {
         <Image
           src="/assets/images/fox_logo.png"
           alt="App Logo"
-          width={60}
-          height={60}
+          width={50}
+          height={50}
           className="object-contain"
         />
         <p className="logo_text">SuperPrompter</p>
