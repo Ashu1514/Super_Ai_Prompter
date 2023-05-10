@@ -4,7 +4,7 @@ import { connectToDB } from "@utils/database";
 
 export const GET = async (req) => {
   try {
-    const { searchParams } = new URL(req.url);
+    const { searchParams } = req.nextUrl;
     const searchText = searchParams.get("search");
     await connectToDB();
     const searchQuery = {};
